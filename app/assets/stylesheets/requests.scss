@@ -1,0 +1,14 @@
+// Place all the styles related to the requests controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+table{
+  table-layout: fixed;
+  width: 100%;
+  border: 1px solid;
+}
+
+th, td {
+  border: 1px solid;
+  overflow: hidden;
+}

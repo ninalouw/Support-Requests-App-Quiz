@@ -1,0 +1,63 @@
+
+<h1>Display all the Support Requests</h1>
+
+<%= form_tag(requests_path, :method => 'get') do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+
+ <% if params[:search].present? %>
+   <% if @requests.present? %>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Department</th>
+        <th>Message</th>
+        <th>Action</th>
+      </tr>
+    <% @requests.each do |r| %>
+      <tr>
+        <td><%= r.name%></td>
+        <td><%= r.email %></td>
+        <td><%= r.department %></td>
+        <td><%= r.message %></td>
+      </tr>
+    <% end %>
+    </table>
+  <% else %>
+    <p> There were no results matching your search terms.</p>
+  <% end %>
+<% else %>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Department</th>
+    <th>Message</th>
+    <th>Action</th>
+  </tr>
+<% @requests.each do |r| %>
+  <tr>
+    <td><%= r.name%></td>
+    <td><%= r.email %></td>
+    <td><%= r.department %></td>
+    <td><%= r.message %></td>
+    <td> <%= link_to 'Edit', edit_request_path(r)%>
+    <%= link_to 'Delete', request_path(r), method: :delete,
+                                                    data:{confirm: "Are you sure?"} %>
+    <% if r.done %>
+    <%= link_to 'Done', done_status_path(r), method: :patch %>
+    <% else %>
+    <%= link_to 'Not Done', done_status_path(r), method: :patch %>
+    <% end %>
+    </td>
+
+<% end %>
+
+</tr>
+</table>
+<% end %>
+<%= paginate @requests %>

@@ -1,24 +1,19 @@
-# README
+# CodeCore Ruby on Rails App Quiz
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Quiz 2 Instructions
 
-Things you may want to cover:
+Using the wireframe you see below, implement the following:
 
-* Ruby version
+1. Implement the ability to display the form and submit a support request as displayed in the wireframe (30%)
 
-* System dependencies
+2. Implement the ability to edit / delete / list all the support requests in a table  (30%)
 
-* Configuration
+3. Implement the ability to mark a support request as `done` or `undone`. All support requests should default to `undone` which should be listed first. (10%)
 
-* Database creation
+4. Implement the ability to search support requests (search is wildcard search by name / email / department and message). The search must be case insensitive. (10%)
 
-* Database initialization
+5. Implement the ability to paginate all support requests (7 requests per page). Make your seed file generates 1000 support requests (Hint: consider using the Faker gem to generate data and Kaminari gem to implement pagination). (10%)
 
-* How to run the test suite
+6. Get the pagination and search to work together. So if you search for a term that has more than 7 results it should paginate within the search results and the search term should still show in the search box (10%)
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+To submit the quiz, have the project hosted on Github and submit the link on Certified.in.
